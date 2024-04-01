@@ -1,0 +1,15 @@
+.float-right {
+    float: right
+}
+
+.float-left {
+    float: left
+}
+
+.font-weight-normal {
+    font-weight: normal;
+}
+
+.font-weight-bold  {
+    font-weight: bold;
+}
