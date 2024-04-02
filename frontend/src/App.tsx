@@ -1,24 +1,7 @@
-import React from "react";
-import Card from "@/components/Card.tsx";
 import { Segment } from "semantic-ui-react";
-import "@/App.css";
-
-export type IPostingList = IPosting[];
-export interface IPosting {
-  id: number;
-  image: string,
-  username: string,
-  postedDate: string,
-  avatar: string,
-  description: string,
-  comments: IPostingComment[],
-}
-
-export interface IPostingComment {
-  username: string,
-  comment: string
-}
-
+import Card from "@/components/Card";
+import { IPostingList } from "@/typescriptInterfaces/posting";
+import "@/css/App.css";
 
 function App() {
   const config: IPostingList = [
@@ -32,13 +15,15 @@ function App() {
       comments: [
         {
           username: "Jason",
-          comment: "Long comment made by a bot that is meant to span multiple lines"
+          comment:
+            "Long comment made by a bot that is meant to span multiple lines",
         },
         {
           username: "Jason",
-          comment: "Long comment made by a bot that is meant to span multiple lines"
-        }
-      ]
+          comment:
+            "Long comment made by a bot that is meant to span multiple lines",
+        },
+      ],
     },
     {
       id: 2,
@@ -50,24 +35,24 @@ function App() {
       comments: [
         {
           username: "Jason",
-          comment: "Long comment made by a bot that is meant to span multiple lines"
+          comment:
+            "Long comment made by a bot that is meant to span multiple lines",
         },
         {
           username: "Jason",
-          comment: "Long comment made by a bot that is meant to span multiple lines"
-        }
-      ]
+          comment:
+            "Long comment made by a bot that is meant to span multiple lines",
+        },
+      ],
     },
   ];
   return (
     <>
       <div className="app-container">
         <Segment className="over">
-          {
-            config.map(config => (
-              <Card config={config}/>
-            ))
-          }
+          {config.map((config) => (
+            <Card config={config} />
+          ))}
         </Segment>
       </div>
     </>

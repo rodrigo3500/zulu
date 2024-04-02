@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
   CardMeta,
   CardHeader,
@@ -9,9 +7,9 @@ import {
   Icon,
   Image,
 } from "semantic-ui-react";
-import "@/components/Card.css";
+import "@/css/Card.css";
 
-import { IPosting } from "../App";
+import { IPosting } from "@/typescriptInterfaces/posting";
 
 interface IProps {
   config: IPosting;
