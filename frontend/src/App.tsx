@@ -8,6 +8,7 @@ function App() {
     {
       id: 1,
       image: "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+      imageAlt: "Foo",
       username: "Jason",
       postedDate: "1h ago",
       avatar: "https://react.semantic-ui.com/images/avatar/small/elliot.jpg",
@@ -28,6 +29,7 @@ function App() {
     {
       id: 2,
       image: "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+      imageAlt: "Foo2",
       username: "Jason",
       postedDate: "1h ago",
       avatar: "https://react.semantic-ui.com/images/avatar/small/elliot.jpg",

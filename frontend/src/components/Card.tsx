@@ -27,7 +27,7 @@ const CustomCard = ({ config }: IProps) => {
           </span>
         </CardHeader>
       </CardContent>
-      <Image src={config.image} wrapped ui={false} />
+      <Image src={config.image} alt={config.imageAlt}/>
       <CardContent>
         <Icon size="big" name="heart outline" />
         <Icon size="big" name="comment outline" />
