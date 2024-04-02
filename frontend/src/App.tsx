@@ -1,7 +1,11 @@
-import { Segment } from "semantic-ui-react";
-import Card from "@/components/Card";
+import { Segment, Icon } from "semantic-ui-react";
+import PostingFeed from "@/components/PostingFeed";
+import MenuBar from "@/components/Menu";
+import PostingGrid from "@/components/PostingGrid";
 import { IPostingList } from "@/typescriptInterfaces/posting";
+import { MenuList } from "@/typescriptInterfaces/menu";
 import "@/css/App.css";
+import { useState } from "react";
 
 function App() {
   const config: IPostingList = [
@@ -15,11 +19,13 @@ function App() {
       description: "Wedding photo #1",
       comments: [
         {
+          id: "1_1",
           username: "Jason",
           comment:
             "Long comment made by a bot that is meant to span multiple lines",
         },
         {
+          id: "1_2",
           username: "Jason",
           comment:
             "Long comment made by a bot that is meant to span multiple lines",
@@ -36,11 +42,13 @@ function App() {
       description: "Wedding photo #2",
       comments: [
         {
+          id: "2_1",
           username: "Jason",
           comment:
             "Long comment made by a bot that is meant to span multiple lines",
         },
         {
+          id: "2_2",
           username: "Jason",
           comment:
             "Long comment made by a bot that is meant to span multiple lines",
@@ -48,13 +56,65 @@ function App() {
       ],
     },
   ];
+
+  const menuItems: MenuList = [
+    {
+      id: 1,
+      name: "List View",
+      menuIcon: <Icon name="list" size="big" />,
+    },
+    {
+      id: 2,
+      name: "Grid View",
+      menuIcon: <Icon name="grid layout" size="big" />,
+    },
+  ];
+
+  const gridItems: string[] = [
+    "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+    "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+    "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+    "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+    "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+    "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+    "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+    "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+    "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+    "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+    "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+    "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+    "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+    "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+    "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+    "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+    "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+    "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+    "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+    "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+    "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+  ]
+
+  const [menuState, setMenuState] = useState("List View");
+
+  const handleMenuChange = (message: string) => {
+    setMenuState(message);
+  };
+
   return (
     <>
       <div className="app-container">
         <Segment className="over">
-          {config.map((config) => (
-            <Card config={config} />
-          ))}
+          <MenuBar menuItems={menuItems} onStateChange={handleMenuChange} />
+          <div className="mt-5">
+            {menuState === "List View" &&
+              config.map((config) => (
+                <PostingFeed key={config.id} config={config} />
+              ))}
+          </div>
+
+          <div className="mt-5">
+            {menuState === "Grid View" && <PostingGrid gridItems={gridItems} />}
+          </div>
         </Segment>
       </div>
     </>

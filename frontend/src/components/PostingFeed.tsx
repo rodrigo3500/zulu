@@ -7,7 +7,7 @@ import {
   Icon,
   Image,
 } from "semantic-ui-react";
-import "@/css/Card.css";
+import "@/css/PostingFeed.css";
 
 import { IPosting } from "@/typescriptInterfaces/posting";
 
@@ -15,7 +15,7 @@ interface IProps {
   config: IPosting;
 }
 
-const CustomCard = ({ config }: IProps) => {
+const PostingFeed = ({ config }: IProps) => {
   return (
     <Card fluid>
       <CardContent>
@@ -27,16 +27,17 @@ const CustomCard = ({ config }: IProps) => {
           </span>
         </CardHeader>
       </CardContent>
-      <Image src={config.image} alt={config.imageAlt}/>
+      <Image src={config.image} alt={config.imageAlt} />
       <CardContent>
-        <Icon size="big" name="heart outline" />
+        <Icon size="big" name="heart outline" color="red" />
         <Icon size="big" name="comment outline" />
         <CardDescription>{config.description}</CardDescription>
       </CardContent>
       <CardContent>
         {config.comments.map((comment) => (
-          <CardDescription>
-            <span className="font-weight-bold">{comment.username}</span> {comment.comment}
+          <CardDescription key={comment.id}>
+            <span className="font-weight-bold">{comment.username}</span>{" "}
+            {comment.comment}
           </CardDescription>
         ))}
         <CardMeta>View {config.comments.length} comments</CardMeta>
@@ -45,4 +46,4 @@ const CustomCard = ({ config }: IProps) => {
   );
 };
 
-export default CustomCard;
+export default PostingFeed;
