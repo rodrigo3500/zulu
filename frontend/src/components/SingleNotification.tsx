@@ -44,7 +44,7 @@ const SingleNotification = ({ config }: IProps) => {
           <CardMeta className="d-block">{config.postedDate}</CardMeta>
         </div>
         <IconGroup size="big">
-          <Image src={config.image} size="mini" />
+          <Image src={config.image} size="mini" alt={config.imageAlt} />
           <Icon corner name={eventIcon as never} color={eventIconColor as never} />
         </IconGroup>
       </div>

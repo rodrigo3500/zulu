@@ -5,7 +5,7 @@ const Notification = () => {
     {
       id: 1,
       image: "https://react.semantic-ui.com/images/avatar/large/matthew.png",
-      imageAlt: "Foo",
+      imageAlt: "",
       username: "Jason",
       postedDate: "1h ago",
       avatar: "https://react.semantic-ui.com/images/avatar/small/elliot.jpg",
@@ -15,7 +15,7 @@ const Notification = () => {
     {
       id: 2,
       image: "https://react.semantic-ui.com/images/avatar/large/matthew.png",
-      imageAlt: "Foo",
+      imageAlt: "",
       username: "Jason",
       postedDate: "2h ago",
       avatar: "https://react.semantic-ui.com/images/avatar/small/elliot.jpg",
@@ -25,7 +25,7 @@ const Notification = () => {
     {
       id: 3,
       image: "https://react.semantic-ui.com/images/avatar/large/matthew.png",
-      imageAlt: "Foo",
+      imageAlt: "",
       username: "Jason",
       postedDate: "3h ago",
       avatar: "https://react.semantic-ui.com/images/avatar/small/elliot.jpg",
