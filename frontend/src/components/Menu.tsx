@@ -1,6 +1,6 @@
 import { Menu, MenuItem } from "semantic-ui-react";
 import { MenuList } from "@/typescriptInterfaces/menu";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface IProps {
   menuItems: MenuList;
@@ -9,13 +9,15 @@ interface IProps {
 
 const MenuBar = ({ menuItems, onStateChange }: IProps) => {
   const [activeItem, setActiveItem] = useState("List View");
+  useEffect(() => {
+    onStateChange(activeItem);
+  }, [activeItem, onStateChange]);
 
   const handleItemClick = (name: string) => {
     setActiveItem(name);
-    onStateChange(name);
   };
   return (
-    <Menu fixed="top">
+    <Menu fixed="top" widths={3}>
       {menuItems.map((item) => (
         <MenuItem
           key={item.id}

@@ -2,6 +2,7 @@ import { Segment, Icon } from "semantic-ui-react";
 import PostingFeed from "@/components/PostingFeed";
 import MenuBar from "@/components/Menu";
 import PostingGrid from "@/components/PostingGrid";
+import Notifications from "@/pages/Notifications";
 import { IPostingList } from "@/typescriptInterfaces/posting";
 import { MenuList } from "@/typescriptInterfaces/menu";
 import "@/css/App.css";
@@ -68,6 +69,11 @@ function App() {
       name: "Grid View",
       menuIcon: <Icon name="grid layout" size="big" />,
     },
+    {
+      id: 3,
+      name: "Notifications",
+      menuIcon: <Icon name="bell outline" size="big" />,
+    },
   ];
 
   const gridItems: string[] = [
@@ -105,15 +111,19 @@ function App() {
       <div className="app-container">
         <Segment className="over">
           <MenuBar menuItems={menuItems} onStateChange={handleMenuChange} />
-          <div className="mt-5">
+          <div className="big-margin">
             {menuState === "List View" &&
               config.map((config) => (
                 <PostingFeed key={config.id} config={config} />
               ))}
           </div>
 
-          <div className="mt-5">
+          <div className="big-margin">
             {menuState === "Grid View" && <PostingGrid gridItems={gridItems} />}
+          </div>
+          
+          <div className="big-margin">
+            {menuState === "Notifications" && <Notifications />}
           </div>
         </Segment>
       </div>

@@ -20,16 +20,25 @@ const PostingFeed = ({ config }: IProps) => {
     <Card fluid>
       <CardContent>
         <CardHeader>
-          <Image src={config.avatar} avatar className="float-left" />
-          <span className="float-left mt-2">{config.username}</span>
-          <span className="float-right mt-2 font-weight-normal">
-            {config.postedDate}
-          </span>
+          <Image src={config.avatar} avatar className="float-left mt-2" />
+          <div className="d-flex align-items-center">
+            <div className="flex-grow-1">
+              <span className="d-block">{config.username}</span>
+              <CardMeta className="d-block font-weight-normal">
+                {config.postedDate}
+              </CardMeta>
+            </div>
+            <Icon
+              name="ellipsis horizontal"
+              className="d-block float-right"
+              size="large"
+            />
+          </div>
         </CardHeader>
       </CardContent>
       <Image src={config.image} alt={config.imageAlt} />
       <CardContent>
-        <Icon size="big" name="heart outline" color="red" />
+        <Icon size="big" name="heart outline" />
         <Icon size="big" name="comment outline" />
         <CardDescription>{config.description}</CardDescription>
       </CardContent>

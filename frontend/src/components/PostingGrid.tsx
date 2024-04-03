@@ -4,30 +4,15 @@ interface IProps {
 }
 const PostingGrid = ({ gridItems }: IProps) => (
   <Grid columns={3}>
-    {gridItems.map((image, index) => (
-        // Ensure each row contains three columns
-        index % 3 === 0 && (
-          <GridRow key={index}>
-            {/* Create three columns in each row */}
-            <>
-              <GridColumn>
-                <Image src={gridItems[index]} />
-              </GridColumn>
-              {/* Check if there are more items for the next columns */}
-              {gridItems[index + 1] && (
-                <GridColumn>
-                  <Image src={gridItems[index + 1]} />
-                </GridColumn>
-              )}
-              {gridItems[index + 2] && (
-                <GridColumn>
-                  <Image src={gridItems[index + 2]} />
-                </GridColumn>
-              )}
-            </>
-          </GridRow>
-        )
-      ))}
+    <GridRow centered columns={3}>
+      <>
+        {gridItems.map((image, index) => (
+          <GridColumn key={index} className="my-2">
+            <Image src={gridItems[index]} />
+          </GridColumn>
+        ))}
+      </>
+    </GridRow>
   </Grid>
 );
 
