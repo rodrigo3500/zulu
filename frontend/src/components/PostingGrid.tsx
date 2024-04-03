@@ -8,7 +8,7 @@ const PostingGrid = ({ gridItems }: IProps) => (
       <>
         {gridItems.map((image, index) => (
           <GridColumn key={index} className="my-2">
-            <Image src={gridItems[index]} alt=""/>
+            <Image src={gridItems[index]} alt="" rounded/>
           </GridColumn>
         ))}
       </>
