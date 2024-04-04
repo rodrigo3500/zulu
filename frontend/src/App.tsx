@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Segment, Icon } from "semantic-ui-react";
-import { MenuList } from "@/typescriptInterfaces/menu";
+import { MenuList, HeaderContent } from "@/typescriptInterfaces/menu";
 import MenuBar from "@/components/Menu";
 import FeedGrid from "@/pages/FeedGrid";
 import Notifications from "@/pages/Notifications";
@@ -32,11 +32,22 @@ function App() {
     setMenuState(message);
   };
 
+  const headerContent: HeaderContent = {
+    groom: "Jason",
+    bride: "Nosaj",
+    date: "01/04/2024",
+    albumPhoto: "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+  };
+
   return (
     <>
       <div className="app-container">
         <Segment className="over">
-          <MenuBar menuItems={menuItems} onStateChange={handleMenuChange} />
+          <MenuBar
+            menuItems={menuItems}
+            onStateChange={handleMenuChange}
+            headerContent={headerContent}
+          />
           <div className="big-margin">
             {menuState === "List View" && <Feed />}
           </div>

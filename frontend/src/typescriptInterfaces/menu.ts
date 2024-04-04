@@ -1,8 +1,14 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
 interface MenuItem {
-  id: number,
+  id: number;
   name: string;
-  menuIcon: ReactNode,
+  menuIcon: ReactNode;
 }
-export type MenuList = MenuItem[]
+export type MenuList = MenuItem[];
+export interface HeaderContent {
+  groom: string;
+  bride: string;
+  date: string;
+  albumPhoto: string;
+}
