@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import MenuBar from '@/components/Menu';
+import TopMenu from '@/components/TopMenu';
 
 describe('MenuBar component', () => {
   const menuItems = [
@@ -8,8 +8,15 @@ describe('MenuBar component', () => {
     { id: 3, name: 'Settings', menuIcon: 'settings icon' }
   ];
 
+  const headerContent = {
+    groom: "Jason",
+    bride: "Nosaj",
+    date: "01/04/2024",
+    albumPhoto: "https://react.semantic-ui.com/images/avatar/large/matthew.png",
+  };
+
   it('renders menu items correctly', () => {
-    const { getByText } = render(<MenuBar menuItems={menuItems} onStateChange={() => {}} />);
+    const { getByText } = render(<TopMenu menuItems={menuItems} onStateChange={() => {}} headerContent={headerContent} />);
 
     // Check if menu items are rendered correctly
     menuItems.forEach(item => {

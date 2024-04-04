@@ -17,7 +17,7 @@ interface IProps {
   headerContent: HeaderContent;
 }
 
-const MenuBar = ({ menuItems, onStateChange, headerContent }: IProps) => {
+const TopMenu = ({ menuItems, onStateChange, headerContent }: IProps) => {
   const [activeItem, setActiveItem] = useState("List View");
   useEffect(() => {
     onStateChange(activeItem);
@@ -29,7 +29,7 @@ const MenuBar = ({ menuItems, onStateChange, headerContent }: IProps) => {
 
   const backgroundImage = `url(${headerContent.albumPhoto})`;
   return (
-    <Menu fixed="top" widths={3} className="d-flex flex-column" pointing>
+    <Menu fixed="top" widths={menuItems.length as never} className="d-flex flex-column" pointing secondary>
       <Container
         style={{
           backgroundImage,
@@ -56,7 +56,6 @@ const MenuBar = ({ menuItems, onStateChange, headerContent }: IProps) => {
             color="orange"
             icon
             labelPosition="left"
-            rounded
             className="float-left"
           >
             <Icon name="plus" />
@@ -83,4 +82,4 @@ const MenuBar = ({ menuItems, onStateChange, headerContent }: IProps) => {
   );
 };
 
-export default MenuBar;
+export default TopMenu;
