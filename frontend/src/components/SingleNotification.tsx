@@ -8,7 +8,7 @@ interface IProps {
 const SingleNotification = ({ config }: IProps) => {
   const [eventString, setEventString] = useState("");
   const [eventIcon, setEventIcon] = useState("");
-  const [eventIconColor, setEventIconColor] = useState("");
+  const [eventIconColor, setEventIconColor] = useState("black");
 
   useEffect(() => {
     switch (config.action) {
