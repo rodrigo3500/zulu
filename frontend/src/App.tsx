@@ -7,6 +7,7 @@ import FeedGrid from "@/pages/FeedGrid";
 import Notifications from "@/pages/Notifications";
 import Feed from "@/pages/Feed";
 import "@/css/App.css";
+import Guests from "@/pages/Guests";
 
 function App() {
   // top menu
@@ -55,11 +56,20 @@ function App() {
     {
       id: 3,
       name: "Camera",
-      menuIcon: <div style={{ position: 'fixed', bottom: '20px', right: '170px', zIndex: '1000' }}>
-      <Button color="blue" circular icon size="massive">
-        <Icon name="plus" />
-      </Button>
-    </div>,
+      menuIcon: (
+        <div
+          style={{
+            position: "fixed",
+            bottom: "20px",
+            right: "170px",
+            zIndex: "1000",
+          }}
+        >
+          <Button color="blue" circular icon size="massive">
+            <Icon name="plus" />
+          </Button>
+        </div>
+      ),
     },
     {
       id: 4,
@@ -103,6 +113,12 @@ function App() {
               <div className="big-margin">
                 {topMenuState === "Notifications" && <Notifications />}
               </div>
+            </div>
+          )}
+
+          {bottomMenuState === "Guests" && (
+            <div className="medium-margin">
+              {topMenuState === "List View" && <Guests />}
             </div>
           )}
 

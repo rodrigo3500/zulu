@@ -29,7 +29,7 @@ const TopMenu = ({ menuItems, onStateChange, headerContent }: IProps) => {
 
   const backgroundImage = `url(${headerContent.albumPhoto})`;
   return (
-    <Menu fixed="top" widths={menuItems.length as never} className="d-flex flex-column" pointing secondary>
+    <Menu fixed="top" widths={menuItems.length as never} className="d-flex flex-column" pointing>
       <Container
         style={{
           backgroundImage,
