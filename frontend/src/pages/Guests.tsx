@@ -1,8 +1,9 @@
 import Guest from "@/components/Guest";
+import { GuestList } from "@/typescriptInterfaces/guest";
 import { Container, Header, Menu, Button } from "semantic-ui-react";
 
 const Guests = () => {
-  const guests = [
+  const guests: GuestList = [
     {
       id: 1,
       avatar: "https://react.semantic-ui.com/images/avatar/large/matthew.png",
